@@ -32,8 +32,8 @@ export class ProductService {
         return this.http.get<IPagedList>(url, options).pipe(
             map((res: IPagedList) => {
                 this.pager = res;
-                const orgs: IProduct[] = res.data;
-                return orgs.map(callBack);
+                const products: IProduct[] = res.data;
+                return products.map(callBack);
             })
         );
     }

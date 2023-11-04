@@ -20,6 +20,9 @@ class ProductsService
         'code' => 'code',
     ];
 
+    /** @var string $url API URL */
+    private string $url;
+
     /** @var array $columns Updateable columns */
     private array $columns = [ ];
 
@@ -40,6 +43,19 @@ class ProductsService
 
     /** @var int $updated Do not touch. */
     private int $updated = 0;
+    
+    /**
+     * setUrl
+     *
+     * @param string|null $availableAt
+     * @return self
+     */
+    public function setUrl(string | null $availableAt = null): self
+    {
+        $this->url = env('OCTOPUS_API_BASE_URL') . '/v1/products/';
+        $this->url .= $availableAt ? '?available_at=' . $availableAt : '';
+        return $this;
+    }
 
     /**
      * execute
@@ -49,10 +65,14 @@ class ProductsService
     public function execute(): void
     {
         $this->setColumns();
-        $url = $this->getUrl();
+        $url = $this->url;
         do {
             $url = $this->storeData($url);
         } while ($url);
+        info('Created ' . $this->created);
+        info('Updated ' . $this->updated);
+        $this->created = 0;
+        $this->updated = 0;
     }
 
     /**
@@ -228,7 +248,7 @@ class ProductsService
      */
     private function parseDate(string | null $date): Carbon | null
     {
-        return Carbon::parse($date);
+        return $date ? Carbon::parse($date) : null;
     }
     
     /**
@@ -240,19 +260,5 @@ class ProductsService
     private function parseBool(bool $bool): int
     {
         return $bool === true ? 1 : 0;
-    }
-
-    /**
-     * getUrl
-     *
-     * @return string
-     */
-    private function getUrl(): string
-    {
-        // $url = env('OCTOPUS_API_BASE_URL');
-        // $url = 'https://api.octopus.energy/v1/products/?available_at=2015-01-01T00:00:00Z&is_business=false';
-        // $url = 'https://api.octopus.energy/v1/products/?available_at=2019-01-01T00:00:00Z&is_business=true';
-        $url = 'https://api.octopus.energy/v1/products';
-        return $url;
     }
 }

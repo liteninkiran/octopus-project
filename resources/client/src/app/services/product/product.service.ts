@@ -23,6 +23,12 @@ export class ProductService {
         const options = { params: params }
         const callBack = (product: IProduct) => ({
             ...product,
+            is_variable: !!product.is_variable,
+            is_green: !!product.is_green,
+            is_tracker: !!product.is_tracker,
+            is_prepay: !!product.is_prepay,
+            is_business: !!product.is_business,
+            is_restricted: !!product.is_restricted,
             available_from: new Date(product.available_from),
             available_to: product.available_to ? new Date(product.available_to) : null,
             created_at: new Date(product.created_at),

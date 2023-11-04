@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material.module';
 import { ProductModule } from './components/products/product.module';
 import { HomeModule } from './components/home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -23,6 +25,8 @@ import { HomeModule } from './components/home/home.module';
         // Core Modules
         BrowserModule,
         BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
 
         // Routing
         AppRoutingModule,

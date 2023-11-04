@@ -15,7 +15,7 @@ export class NavbarLinksComponent {
         },
         {
             link: '/products',
-            icon: 'roller_skating',
+            icon: 'cases',
             text: 'Products',
         },
     ]

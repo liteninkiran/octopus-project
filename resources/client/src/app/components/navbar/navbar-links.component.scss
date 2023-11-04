@@ -5,15 +5,18 @@ a {
         color: black;
     }
 }
+
 mat-icon {
     color: grey;
 }
 
 .active-list-item {
     background-color: rgb(230, 230, 230);
+
     mat-icon {
         color: #3F51B5 !important;
     }
+
     span {
         color: #3F51B5 !important;
     }

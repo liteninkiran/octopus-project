@@ -20,8 +20,9 @@
     [service]="productService"
     [filters]="filters"
     [paginatorConfig]="paginatorConfig"
-    defaultSortCol="code"
+    [showReloadDataButton]="false"
     [actionButtonConfig]="actionButtonConfig"
+    [defaultSortCol]="'code'"
     (actionButtonClick)="onActionButtonClick($event)"
     (rowClick)="onRowClick($event)"
 ></shared-table>

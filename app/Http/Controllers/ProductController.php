@@ -6,72 +6,35 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 
-// Requests
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
-
 // Models
 use App\Models\Product;
 
 // Jobs
 use App\Jobs\StoreProducts;
 
+// Services
+use App\Services\Local\ProductPager;
+
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * index
+     *
+     * @param ProductPager $productPager
+     * @return LengthAwarePaginator
      */
-    public function index()
+    public function index(ProductPager $productPager): LengthAwarePaginator
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreProductRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProductRequest $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+        // \DB::enableQueryLog();
+        $response = $productPager->getPaginatedProducts(
+            $this->getFiltersArray(),
+            request()->input('sortCol', 'id'),
+            request()->input('sortOrder', 'asc'),
+            request()->input('pageNumber', 0),
+            request()->input('pageSize', 10),
+        );
+        // info(\DB::getQueryLog());
+        return $response;
     }
 
     /**
@@ -84,4 +47,38 @@ class ProductController extends Controller
         StoreProducts::dispatch();
         return response()->json([ 'response' => 'Added to queue' ]);
     }
+    
+    /**
+     * getFiltersArray
+     *
+     * @return array
+     */
+    private function getFiltersArray(): array
+    {
+        $filterNames = [
+            'code',
+            'direction',
+            'full_name',
+            'display_name',
+            'description',
+            'brand',
+            'is_variable',
+            'is_green',
+            'is_tracker',
+            'is_prepay',
+            'is_business',
+            'is_restricted',
+            'term',
+            'available_from',
+            'available_to',
+        ];
+
+        $filters = array_reduce($filterNames, function ($result, $item) {
+            $result[$item] = request()->input($item, null);
+            return $result;
+        }, array());
+
+        return $filters;
+    }
+
 }

@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Components
+import { AppComponent } from './app.component';
+import { NavbarLinksComponent } from './components/navbar/navbar-links.component';
+import { HomeComponent } from './components/home/home.component';
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material.module';
+import { ProductModule } from './components/products/product.module';
+import { HomeModule } from './components/home/home.module';
 
 @NgModule({
     declarations: [
         AppComponent,
+        NavbarLinksComponent,
     ],
     imports: [
         // Core Modules
@@ -22,6 +29,10 @@ import { MaterialModule } from './modules/material.module';
 
         // Shared Modules
         MaterialModule,
+
+        // Feature Modules
+        HomeModule,
+        ProductModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

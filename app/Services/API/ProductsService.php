@@ -244,11 +244,11 @@ class ProductsService
      * parseDate
      *
      * @param string|null $date
-     * @return Carbon|null
+     * @return string|null
      */
-    private function parseDate(string | null $date): Carbon | null
+    private function parseDate(string | null $date): string | null
     {
-        return $date ? Carbon::parse($date) : null;
+        return $date ? Carbon::parse($date)->format('Y-m-d h:i:s') : null;
     }
     
     /**

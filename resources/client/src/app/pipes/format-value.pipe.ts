@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform, Inject, LOCALE_ID } from '@angular/core';
 import { DateAgoPipe } from './date-ago.pipe';
-import { formatNumber } from '@angular/common';
+import { DatePipe, formatNumber } from '@angular/common';
 
 @Pipe({ name: 'FormatValue' })
 export class FormatValuePipe implements PipeTransform {
@@ -20,8 +20,8 @@ export class FormatValuePipe implements PipeTransform {
                 break;
             case 'object':
                 if (Object.prototype.toString.call(val) === '[object Date]') {
-                    const pipe = new DateAgoPipe();
-                    newVal = pipe.transform(val);
+                    const pipe = new DatePipe('en-GB');
+                    newVal = pipe.transform(val, 'dd/MM/yyyy');
                 }
                 break;
             default:

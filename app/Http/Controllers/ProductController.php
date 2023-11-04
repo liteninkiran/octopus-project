@@ -2,9 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+// Illuminate
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Http\JsonResponse;
+
+// Requests
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+
+// Models
+use App\Models\Product;
+
+// Jobs
+use App\Jobs\StoreProducts;
 
 class ProductController extends Controller
 {
@@ -62,5 +72,16 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    /**
+     * storeProducts
+     *
+     * @return JsonResponse
+     */
+    public function storeProducts(): JsonResponse
+    {
+        StoreProducts::dispatch();
+        return response()->json([ 'response' => 'Added to queue' ]);
     }
 }

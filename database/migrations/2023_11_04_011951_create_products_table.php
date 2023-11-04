@@ -26,8 +26,8 @@ return new class extends Migration
             $table->boolean('is_business');
             $table->boolean('is_restricted');
             $table->integer('term')->nullable();
-            $table->timestamp('available_from');
-            $table->timestamp('available_to')->nullable();
+            $table->dateTime('available_from');
+            $table->dateTime('available_to')->nullable();
             $table->timestamps();
         });
     }

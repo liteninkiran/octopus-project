@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('direction');
             $table->string('full_name');
             $table->string('display_name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('brand');
             $table->boolean('is_variable');
             $table->boolean('is_green');

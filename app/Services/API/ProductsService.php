@@ -69,6 +69,7 @@ class ProductsService
         do {
             $url = $this->storeData($url);
         } while ($url);
+        info('Processed ' . $this->count);
         info('Created ' . $this->created);
         info('Updated ' . $this->updated);
         $this->created = 0;

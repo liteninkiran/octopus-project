@@ -53,7 +53,7 @@ class StoreProducts implements ShouldQueue
     private function getDateRange(): DatePeriod
     {
         $end = date('Y-m-01');
-        $start = date('Y-m-d', strtotime($end . ' -2 years'));
+        $start = date('Y-m-d', strtotime($end . ' -1 year'));
         $startDate = date_create($start);
         $endDate = date_create($end);
         $interval = new DateInterval('P1M');

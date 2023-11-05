@@ -13,6 +13,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/modules/material.module';
 import { PipeModule } from 'src/app/modules/pipe.module';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { PipeModule } from 'src/app/modules/pipe.module';
     declarations: [
         ProductComponent,
         ProductFiltersComponent,
+        ProductViewComponent,
     ]
 })
 export class ProductModule {}

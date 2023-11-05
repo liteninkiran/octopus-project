@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { IProduct } from 'src/app/interfaces/product.interface';
@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product/product.service';
     styleUrls: ['./product-view.component.scss'],
     providers: [ProductService],
 })
-export class ProductViewComponent {
+export class ProductViewComponent implements OnInit, OnDestroy {
 
     public id: string = '';
     public product$: Observable<IProduct> = new Observable<IProduct>();
@@ -28,6 +28,10 @@ export class ProductViewComponent {
 
     public ngOnInit(): void {
         this.setId();
+    }
+
+    public ngOnDestroy(): void {
+        this.subscriptions.map((sub: Subscription) => sub.unsubscribe())
     }
 
     private setId(): void {

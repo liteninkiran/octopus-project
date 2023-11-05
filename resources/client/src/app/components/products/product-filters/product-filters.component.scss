@@ -12,6 +12,7 @@ mat-form-field {
 
 mat-panel-description {
     flex-grow: 4;
+
     mat-icon {
         margin-right: 10px;
     }
@@ -22,7 +23,6 @@ mat-panel-description {
     border-style: solid;
     border-radius: 10px;
     border-width: 1px;
-    // margin-bottom: 25px;
 }
 
 legend {
@@ -64,4 +64,10 @@ img {
 
 .fieldset-spacer {
     height: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

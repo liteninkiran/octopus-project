@@ -217,6 +217,32 @@
 
                         </mat-form-field>
 
+                        <!-- Term -->
+                        <mat-form-field>
+
+                            <mat-label>
+                                Term
+                            </mat-label>
+
+                            <input
+                                type="number"
+                                matInput
+                                [formControl]="filterFormControls.term"
+                                placeholder="1 - 99"
+                            >
+
+                            <button
+                                *ngIf="filterFormControls.term.value"
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="filterFormControls.term.setValue(null)"
+                            >
+                                <mat-icon>close</mat-icon>
+                            </button>
+
+                        </mat-form-field>
+
                     </div>
 
                 </fieldset>

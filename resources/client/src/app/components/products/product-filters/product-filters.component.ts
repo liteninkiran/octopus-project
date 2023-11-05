@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import { IProductFilterFormGroup, IProductFilters } from 'src/app/interfaces/product.interface';
@@ -94,7 +94,7 @@ export class ProductFiltersComponent {
             is_prepay       : new FormControl(this.defaultFilters.is_prepay),
             is_business     : new FormControl(this.defaultFilters.is_business),
             is_restricted   : new FormControl(this.defaultFilters.is_restricted),
-            term            : new FormControl(this.defaultFilters.term),
+            term            : new FormControl(this.defaultFilters.term, { validators: [Validators.min(1), Validators.max(99), Validators.pattern('[0-9]+')] }),
             available_on    : new FormControl(this.defaultFilters.available_on),
         }
     }

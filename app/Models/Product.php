@@ -191,4 +191,16 @@ class Product extends Model
                     ->orWhereNull('available_to');
             });
     }
+
+    /**
+     * scopeTerm
+     *
+     * @param Builder $query
+     * @param int $term
+     * @return Builder
+     */
+    public function scopeTerm(Builder $query, int $term): Builder
+    {
+        return $query->where('term', '=', $term);
+    }
 }

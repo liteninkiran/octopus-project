@@ -58,14 +58,14 @@ export class ProductComponent implements OnInit {
     private columnConfigData(): IMatTableColumnConfig[] {
         return [
             { columnId: 'code', columnName: 'Code', visible: true },
-            { columnId: 'direction', columnName: 'Direction', visible: true },
             { columnId: 'full_name', columnName: 'Full Name', visible: false },
             { columnId: 'display_name', columnName: 'Display Name', visible: true },
             { columnId: 'description', columnName: 'Description', visible: false },
-            { columnId: 'brand', columnName: 'Brand', visible: true },
             { columnId: 'term', columnName: 'Term', visible: true },
             { columnId: 'available_from', columnName: 'Available From', visible: true },
             { columnId: 'available_to', columnName: 'Available To', visible: true },
+            { columnId: 'brand', columnName: 'Brand', visible: true },
+            { columnId: 'direction', columnName: 'Direction', visible: true },
             { columnId: 'is_variable', columnName: 'Is Variable', visible: false },
             { columnId: 'is_green', columnName: 'Is Green', visible: false },
             { columnId: 'is_tracker', columnName: 'Is Tracker', visible: false },

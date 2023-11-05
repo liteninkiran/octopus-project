@@ -84,6 +84,7 @@ class ProductPager
         if ($filters['display_name']) { $this->query->displayNameLike($filters['display_name']); }
         if ($filters['description'] ) { $this->query->descriptionLike($filters['description']); }
         if ($filters['brand']       ) { $this->query->brandLike($filters['brand']); }
+        if ($filters['available_on']) { $this->query->availableOn($filters['available_on']); }
 
         // Boolean filters
         if ($filters['is_variable']   !== null) { $this->query->isVariable($filters['is_variable']); }

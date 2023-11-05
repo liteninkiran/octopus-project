@@ -35,8 +35,7 @@ export interface IProductFilters {
     is_business: number | null;
     is_restricted: number | null;
     term: number | null;
-    available_from: Date | null;
-    available_to: Date | null;
+    available_on: Date | null;
 };
 
 export interface IProductFilterFormGroup {
@@ -53,6 +52,5 @@ export interface IProductFilterFormGroup {
     is_business: FormControl<number | null>;
     is_restricted: FormControl<number | null>;
     term: FormControl<number | null>;
-    available_from: FormControl<Date | null>;
-    available_to: FormControl<Date | null>;
+    available_on: FormControl<Date | null>;
 };

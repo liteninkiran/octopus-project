@@ -174,4 +174,21 @@ class Product extends Model
     {
         return $query->where('is_restricted', $boolVal);
     }
+
+    /**
+     * scopeAvailableOn
+     *
+     * @param Builder $query
+     * @param string $date
+     * @return Builder
+     */
+    public function scopeAvailableOn(Builder $query, string $date): Builder
+    {
+        return $query
+            ->where('available_from', '<=', $date)
+            ->where(function (Builder $query) use ($date) {
+                $query->where('available_to', '>=', $date)
+                    ->orWhereNull('available_to');
+            });
+    }
 }

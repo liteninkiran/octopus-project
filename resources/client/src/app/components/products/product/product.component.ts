@@ -13,7 +13,7 @@ import { ProductDataSource } from '../product.data-source';
 })
 export class ProductComponent implements OnInit {
     public filters: IProductFilters = {} as IProductFilters;
-    public defaultFilters: IProductFilters = { } as IProductFilters;
+    public defaultFilters: IProductFilters = { available_on: new Date() } as IProductFilters;
     public dataSource!: ProductDataSource;
     public columnConfig: IMatTableColumnConfig[] = [];
     public actionButtonConfig: IAsyncButtonInputConfig = {

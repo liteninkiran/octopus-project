@@ -91,8 +91,7 @@ export class ProductService {
         if (filters.is_business !== null) { params = params.append('is_business', filters.is_business); }
         if (filters.is_restricted !== null) { params = params.append('is_restricted', filters.is_restricted); }
         if (filters.term !== null) { params = params.append('term', filters.term); }
-        if (filters.available_from !== null) { params = params.append('available_from',  moment(filters.available_from).format('YYYY-MM-DD')); }
-        if (filters.available_to !== null) { params = params.append('available_to',  moment(filters.available_to).format('YYYY-MM-DD')); }
+        if (filters.available_on !== null) { params = params.append('available_on',  moment(filters.available_on).format('YYYY-MM-DD')); }
         return params;
     }
 }

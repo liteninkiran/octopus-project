@@ -194,13 +194,35 @@
 
                         </mat-form-field>
 
+                        <!-- Available On -->
+                        <mat-form-field>
+
+                            <mat-label>Available On</mat-label>
+
+                            <input matInput [matDatepicker]="picker" [formControl]="filterFormControls.available_on" [max]="maxDate">
+
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+
+                            <mat-datepicker #picker></mat-datepicker>
+
+                            <button
+                                *ngIf="filterFormControls.available_on.value"
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="filterFormControls.available_on.setValue(null)"
+                            >
+                                <mat-icon>close</mat-icon>
+                            </button>
+
+                        </mat-form-field>
+
                     </div>
 
                 </fieldset>
 
-                <div class="fieldset-spacer">
-
-                </div>
+                <!-- Spacer -->
+                <div class="fieldset-spacer"></div>
 
                 <!-- Boolean Filters -->
                 <fieldset class="field_set">

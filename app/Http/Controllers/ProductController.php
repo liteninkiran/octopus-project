@@ -69,8 +69,7 @@ class ProductController extends Controller
             'is_business',
             'is_restricted',
             'term',
-            'available_from',
-            'available_to',
+            'available_on',
         ];
 
         $filters = array_reduce($filterNames, function ($result, $item) {

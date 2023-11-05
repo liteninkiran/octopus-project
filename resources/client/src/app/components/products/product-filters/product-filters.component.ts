@@ -92,8 +92,7 @@ export class ProductFiltersComponent {
             is_business     : new FormControl(this.defaultFilters.is_business),
             is_restricted   : new FormControl(this.defaultFilters.is_restricted),
             term            : new FormControl(this.defaultFilters.term),
-            available_from  : new FormControl(this.defaultFilters.available_from),
-            available_to    : new FormControl(this.defaultFilters.available_to),
+            available_on    : new FormControl(this.defaultFilters.available_on),
         }
     }
 }

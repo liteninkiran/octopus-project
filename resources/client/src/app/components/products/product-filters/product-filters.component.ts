@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DateAdapter } from '@angular/material/core';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import { IProductFilterFormGroup, IProductFilters } from 'src/app/interfaces/product.interface';
 import { IFilterConfig } from 'src/app/interfaces/shared.interface';
@@ -7,7 +8,7 @@ import { IFilterConfig } from 'src/app/interfaces/shared.interface';
 @Component({
     selector: 'app-product-filters',
     templateUrl: './product-filters.component.html',
-    styleUrls: ['./product-filters.component.scss']
+    styleUrls: ['./product-filters.component.scss'],
 })
 export class ProductFiltersComponent {
 
@@ -27,7 +28,9 @@ export class ProductFiltersComponent {
     public filterText: string = '';
     public maxDate: Date = new Date();
 
-    constructor() { }
+    constructor(private dateAdapter: DateAdapter<Date>) {
+        this.dateAdapter.setLocale('en-GB');
+    }
 
     public ngOnInit(): void {
         this.setFilterFormGroup();

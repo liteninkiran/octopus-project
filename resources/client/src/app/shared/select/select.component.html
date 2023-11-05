@@ -1,0 +1,40 @@
+<mat-form-field subscriptSizing="dynamic">
+
+    <!-- Label -->
+    <mat-label>
+        {{ label }}
+    </mat-label>
+
+    <!-- List -->
+    <mat-select
+        [formControl]="fControl"
+        [placeholder]="'Select ' + label + '(s)'"
+        [panelClass]="panelClass"
+        [multiple]="multiple"
+    >
+        <ng-container *ngIf="data">
+            <mat-option *ngFor="let item of (data)" [value]="item.id" [ngStyle]="{ 'font-size': fontSize }">
+                <div class="select-container">
+                    <div class="select-container-child">
+                        {{ item.name }}
+                    </div>
+                    <div>
+                        <img *ngIf="item.icon" [src]="item.icon" />
+                    </div>
+                </div>
+            </mat-option>
+        </ng-container>
+    </mat-select>
+
+    <!-- Clear Contents -->
+    <button
+        *ngIf="fControl.value?.length || 0 > 0"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="fControl.setValue(null)"
+    >
+        <mat-icon>close</mat-icon>
+    </button>
+
+</mat-form-field>

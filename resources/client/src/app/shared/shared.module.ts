@@ -7,12 +7,14 @@ import { TableComponent } from './table/table.component';
 import { ButtonComponent } from './button/button.component';
 import { CheckboxMenuComponent } from './checkbox-menu/checkbox-menu.component';
 import { PipeModule } from '../modules/pipe.module';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
     declarations: [
         TableComponent,
         ButtonComponent,
         CheckboxMenuComponent,
+        SelectComponent,
     ],
     imports: [
         CommonModule,
@@ -24,6 +26,7 @@ import { PipeModule } from '../modules/pipe.module';
         TableComponent,
         ButtonComponent,
         CheckboxMenuComponent,
+        SelectComponent,
     ],
 })
 export class SharedModule { }

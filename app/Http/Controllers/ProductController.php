@@ -38,6 +38,17 @@ class ProductController extends Controller
     }
 
     /**
+     * show
+     *
+     * @param Product $product
+     * @return JsonResponse
+     */
+    public function show(Product $product): JsonResponse
+    {
+        return response()->json($product);
+    }
+
+    /**
      * storeProducts
      *
      * @return JsonResponse

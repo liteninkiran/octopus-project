@@ -5,6 +5,21 @@ import { IProduct, IProductFilters } from 'src/app/interfaces/product.interface'
 import { IPagedList } from 'src/app/interfaces/shared.interface';
 import * as moment from 'moment';
 
+const callBack = (product: IProduct) => ({
+    ...product,
+    brand: product.brand.replace('_', ' '),
+    is_variable: !!product.is_variable,
+    is_green: !!product.is_green,
+    is_tracker: !!product.is_tracker,
+    is_prepay: !!product.is_prepay,
+    is_business: !!product.is_business,
+    is_restricted: !!product.is_restricted,
+    available_from: new Date(product.available_from),
+    available_to: product.available_to ? new Date(product.available_to) : null,
+    created_at: new Date(product.created_at),
+    updated_at: new Date(product.updated_at),
+});
+
 @Injectable()
 export class ProductService {
 
@@ -21,20 +36,6 @@ export class ProductService {
 
         const url = '/api/products';
         const options = { params: params }
-        const callBack = (product: IProduct) => ({
-            ...product,
-            brand: product.brand.replace('_', ' '),
-            is_variable: !!product.is_variable,
-            is_green: !!product.is_green,
-            is_tracker: !!product.is_tracker,
-            is_prepay: !!product.is_prepay,
-            is_business: !!product.is_business,
-            is_restricted: !!product.is_restricted,
-            available_from: new Date(product.available_from),
-            available_to: product.available_to ? new Date(product.available_to) : null,
-            created_at: new Date(product.created_at),
-            updated_at: new Date(product.updated_at),
-        });
 
         return this.http.get<IPagedList>(url, options).pipe(
             map((res: IPagedList) => {
@@ -45,28 +46,11 @@ export class ProductService {
         );
     }
 
-    public loadProductData(id: string, filters: IProductFilters, radius: number): Observable<IProduct[]> {
+    public loadProductData(id: string): Observable<IProduct> {
         let params: HttpParams = new HttpParams();
-
-        const url = '/api/products/view/' + id;
+        const url = '/api/products/' + id;
         const options = { params: params }
-        const callBack = (product: IProduct) => ({
-            ...product,
-            available_from: new Date(product.available_from),
-            available_to: product.available_to ? new Date(product.available_to) : null,
-            created_at: new Date(product.created_at),
-            updated_at: new Date(product.updated_at),
-        });
-        return this.http.get<IProduct[]>(url, options).pipe(
-            map((res: IProduct[]) => {
-                return res.map(callBack);
-            })
-        );
-    }
-
-    public loadDataFromApi(roleId: string): Observable<any> {
-        const url = `/api/products/store_from_api/${roleId}`;
-        return this.http.post(url, {});
+        return this.http.get<IProduct>(url, options).pipe(map(callBack));
     }
 
     private getParams(sortCol: string, sortOrder: string, pageNumber: number, pageSize: number): HttpParams {

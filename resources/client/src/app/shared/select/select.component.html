@@ -28,7 +28,7 @@
 
     <!-- Clear Contents -->
     <button
-        *ngIf="fControl.value?.length || 0 > 0"
+        *ngIf="multiple ? fControl.value?.length || 0 > 0 : fControl.value"
         matSuffix
         mat-icon-button
         aria-label="Clear"

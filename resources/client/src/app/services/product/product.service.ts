@@ -23,6 +23,7 @@ export class ProductService {
         const options = { params: params }
         const callBack = (product: IProduct) => ({
             ...product,
+            brand: product.brand.replace('_', ' '),
             is_variable: !!product.is_variable,
             is_green: !!product.is_green,
             is_tracker: !!product.is_tracker,

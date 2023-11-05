@@ -99,6 +99,7 @@ class Product extends Model
      */
     public function scopeBrandLike(Builder $query, string $brand): Builder
     {
+        $brand = str_replace(' ', '_', $brand);
         return $query->where('brand', 'LIKE', '%' . $brand . '%');
     }
 }

@@ -102,4 +102,76 @@ class Product extends Model
         $brand = str_replace(' ', '_', $brand);
         return $query->where('brand', 'LIKE', '%' . $brand . '%');
     }
+    
+    /**
+     * scopeIsVariable
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsVariable(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_variable', $boolVal);
+    }
+
+    /**
+     * scopeIsGreen
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsGreen(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_green', $boolVal);
+    }
+
+    /**
+     * scopeIsTracker
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsTracker(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_tracker', $boolVal);
+    }
+
+    /**
+     * scopeIsPrepay
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsPrepay(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_prepay', $boolVal);
+    }
+
+    /**
+     * scopeIsBusiness
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsBusiness(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_business', $boolVal);
+    }
+
+    /**
+     * scopeIsRestricted
+     *
+     * @param Builder $query
+     * @param bool $boolVal
+     * @return Builder
+     */
+    public function scopeIsRestricted(Builder $query, bool $boolVal): Builder
+    {
+        return $query->where('is_restricted', $boolVal);
+    }
 }

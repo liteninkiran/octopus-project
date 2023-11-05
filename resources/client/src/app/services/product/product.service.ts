@@ -78,21 +78,21 @@ export class ProductService {
     }
 
     private addFilters(filters: IProductFilters, params: HttpParams): HttpParams {
-        if (filters.code) { params = params.append('code', filters.code); }
-        if (filters.direction) { params = params.append('direction', filters.direction); }
-        if (filters.full_name) { params = params.append('full_name', filters.full_name); }
-        if (filters.display_name) { params = params.append('display_name', filters.display_name); }
-        if (filters.description) { params = params.append('description', filters.description); }
-        if (filters.brand) { params = params.append('brand', filters.brand); }
-        if (filters.is_variable) { params = params.append('is_variable', filters.is_variable); }
-        if (filters.is_green) { params = params.append('is_green', filters.is_green); }
-        if (filters.is_tracker) { params = params.append('is_tracker', filters.is_tracker); }
-        if (filters.is_prepay) { params = params.append('is_prepay', filters.is_prepay); }
-        if (filters.is_business) { params = params.append('is_business', filters.is_business); }
-        if (filters.is_restricted) { params = params.append('is_restricted', filters.is_restricted); }
-        if (filters.term) { params = params.append('term', filters.term); }
-        if (filters.available_from) { params = params.append('available_from',  moment(filters.available_from).format('YYYY-MM-DD')); }
-        if (filters.available_to) { params = params.append('available_to',  moment(filters.available_to).format('YYYY-MM-DD')); }
+        if (filters.code !== null) { params = params.append('code', filters.code); }
+        if (filters.direction !== null) { params = params.append('direction', filters.direction); }
+        if (filters.full_name !== null) { params = params.append('full_name', filters.full_name); }
+        if (filters.display_name !== null) { params = params.append('display_name', filters.display_name); }
+        if (filters.description !== null) { params = params.append('description', filters.description); }
+        if (filters.brand !== null) { params = params.append('brand', filters.brand); }
+        if (filters.is_variable !== null) { params = params.append('is_variable', filters.is_variable); }
+        if (filters.is_green !== null) { params = params.append('is_green', filters.is_green); }
+        if (filters.is_tracker !== null) { params = params.append('is_tracker', filters.is_tracker); }
+        if (filters.is_prepay !== null) { params = params.append('is_prepay', filters.is_prepay); }
+        if (filters.is_business !== null) { params = params.append('is_business', filters.is_business); }
+        if (filters.is_restricted !== null) { params = params.append('is_restricted', filters.is_restricted); }
+        if (filters.term !== null) { params = params.append('term', filters.term); }
+        if (filters.available_from !== null) { params = params.append('available_from',  moment(filters.available_from).format('YYYY-MM-DD')); }
+        if (filters.available_to !== null) { params = params.append('available_to',  moment(filters.available_to).format('YYYY-MM-DD')); }
         return params;
     }
 }

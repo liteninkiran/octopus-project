@@ -33,11 +33,11 @@
             <!-- Filters -->
             <form>
 
-                <!-- Misc Filters -->
+                <!-- Product Filters -->
                 <fieldset class="field_set">
 
                     <legend>
-                        Misc Filters
+                        Product Filters
                     </legend>
 
                     <div class="filter-container">
@@ -193,6 +193,48 @@
                             </button>
 
                         </mat-form-field>
+
+                        <!-- Is Variable -->
+                        <mat-radio-group [formControl]="filterFormControls.is_variable">
+                            <mat-radio-button [value]="1">Variable</mat-radio-button>
+                            <mat-radio-button [value]="0">Fixed</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
+
+                        <!-- Is Green -->
+                        <mat-radio-group [formControl]="filterFormControls.is_green">
+                            <mat-radio-button [value]="1">Green</mat-radio-button>
+                            <mat-radio-button [value]="0">Not Green</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
+
+                        <!-- Is Tracker -->
+                        <mat-radio-group [formControl]="filterFormControls.is_tracker">
+                            <mat-radio-button [value]="1">Tracker</mat-radio-button>
+                            <mat-radio-button [value]="0">Not Tracker</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
+
+                        <!-- Is Prepay -->
+                        <mat-radio-group [formControl]="filterFormControls.is_prepay">
+                            <mat-radio-button [value]="1">Prepay</mat-radio-button>
+                            <mat-radio-button [value]="0">Credit</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
+
+                        <!-- Is Business -->
+                        <mat-radio-group [formControl]="filterFormControls.is_business">
+                            <mat-radio-button [value]="1">Business</mat-radio-button>
+                            <mat-radio-button [value]="0">Domestic</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
+
+                        <!-- Is Restricted -->
+                        <mat-radio-group [formControl]="filterFormControls.is_restricted">
+                            <mat-radio-button [value]="1">Restricted</mat-radio-button>
+                            <mat-radio-button [value]="0">Unrestricted</mat-radio-button>
+                            <mat-radio-button [value]="null">Both</mat-radio-button>
+                        </mat-radio-group>
 
                         <div class="filter-spacer">
 

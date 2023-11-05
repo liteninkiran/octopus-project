@@ -77,12 +77,22 @@ class ProductPager
      */
     private function addFilters(array $filters): self
     {
-        if ($filters['code']) { $this->query->codeLike($filters['code']); }
-        if ($filters['direction']) { $this->query->directionLike($filters['direction']); }
-        if ($filters['full_name']) { $this->query->fullNameLike($filters['full_name']); }
+        // Text filters
+        if ($filters['code']        ) { $this->query->codeLike($filters['code']); }
+        if ($filters['direction']   ) { $this->query->directionLike($filters['direction']); }
+        if ($filters['full_name']   ) { $this->query->fullNameLike($filters['full_name']); }
         if ($filters['display_name']) { $this->query->displayNameLike($filters['display_name']); }
-        if ($filters['description']) { $this->query->descriptionLike($filters['description']); }
-        if ($filters['brand']) { $this->query->brandLike($filters['brand']); }
+        if ($filters['description'] ) { $this->query->descriptionLike($filters['description']); }
+        if ($filters['brand']       ) { $this->query->brandLike($filters['brand']); }
+
+        // Boolean filters
+        if ($filters['is_variable']   !== null) { $this->query->isVariable($filters['is_variable']); }
+        if ($filters['is_green']      !== null) { $this->query->isGreen($filters['is_green']); }
+        if ($filters['is_tracker']    !== null) { $this->query->isTracker($filters['is_tracker']); }
+        if ($filters['is_prepay']     !== null) { $this->query->isPrepay($filters['is_prepay']); }
+        if ($filters['is_business']   !== null) { $this->query->isBusiness($filters['is_business']); }
+        if ($filters['is_restricted'] !== null) { $this->query->isRestricted($filters['is_restricted']); }
+
         return $this;
     }
 

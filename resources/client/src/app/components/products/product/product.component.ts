@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
     public defaultFilters: IProductFilters = { available_on: new Date() } as IProductFilters;
     public dataSource!: ProductDataSource;
     public columnConfig: IMatTableColumnConfig[] = [];
+    public defaultSortCol: string = 'display_name';
     public actionButtonConfig: IAsyncButtonInputConfig = {
         buttonText: '',
         colour: 'primary',

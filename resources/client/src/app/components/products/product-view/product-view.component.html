@@ -74,16 +74,16 @@
                     </div>
 
                     <div class="field-container">
-                        <!-- Available To -->
-                        <mat-form-field class="product-form-field">
-                            <mat-label>Available To</mat-label>
-                            <input matInput type="text" [value]="product.available_to | date: 'EEEE dd/MM/yyyy'" [readonly]="true">
-                        </mat-form-field>
-
                         <!-- Available From -->
                         <mat-form-field class="product-form-field">
                             <mat-label>Available From</mat-label>
                             <input matInput type="text" [value]="product.available_from | date: 'EEEE dd/MM/yyyy'" [readonly]="true">
+                        </mat-form-field>
+
+                        <!-- Available To -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Available To</mat-label>
+                            <input matInput type="text" [value]="product.available_to | date: 'EEEE dd/MM/yyyy'" [readonly]="true">
                         </mat-form-field>
                     </div>
 

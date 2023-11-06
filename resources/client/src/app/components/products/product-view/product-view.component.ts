@@ -23,7 +23,6 @@ export class ProductViewComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         readonly productService: ProductService,
     ) {
-
     }
 
     public ngOnInit(): void {

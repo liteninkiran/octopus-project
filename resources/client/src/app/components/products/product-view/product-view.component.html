@@ -1,1 +1,159 @@
-<h2>{{ id }}</h2>
+<!-- Loading Spinner -->
+<ng-template #loading>
+    <mat-spinner diameter="30" class="loading-spinner"></mat-spinner>
+</ng-template>
+
+<!-- No Data -->
+<ng-template #noData>
+    <h1>No Data</h1>
+</ng-template>
+
+<!-- Header -->
+<ng-container *ngIf="product; else loading">
+    <h1 class="page-header">
+        {{ product.display_name }}
+    </h1>
+</ng-container>
+
+<!-- Product Details -->
+<div class="page-container">
+
+    <!-- Product Details -->
+    <div class="product-container">
+
+        <ng-container *ngIf="product; else loading">
+
+            <form>
+
+                <fieldset class="field_set">
+
+                    <legend>
+                        Product
+                    </legend>
+
+                    <div class="field-container">
+                        <!-- Code -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Code</mat-label>
+                            <input matInput type="text" [value]="product.code" [readonly]="true">
+                        </mat-form-field>
+
+                        <!-- Display Name -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Display Name</mat-label>
+                            <input matInput type="text" [value]="product.display_name" [readonly]="true">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field-container">
+                        <!-- Full Name -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Full Name</mat-label>
+                            <input matInput type="text" [value]="product.full_name" [readonly]="true">
+                        </mat-form-field>
+
+                        <!-- Brand -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Brand</mat-label>
+                            <input matInput type="text" [value]="product.brand" [readonly]="true">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field-container">
+                        <!-- Direction -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Direction</mat-label>
+                            <input matInput type="text" [value]="product.direction" [readonly]="true">
+                        </mat-form-field>
+
+                        <!-- Term -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Term</mat-label>
+                            <input matInput type="text" [value]="product.term" [readonly]="true">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field-container">
+                        <!-- Available To -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Available To</mat-label>
+                            <input matInput type="text" [value]="product.available_to | date: 'EEEE dd/MM/yyyy'" [readonly]="true">
+                        </mat-form-field>
+
+                        <!-- Available From -->
+                        <mat-form-field class="product-form-field">
+                            <mat-label>Available From</mat-label>
+                            <input matInput type="text" [value]="product.available_from | date: 'EEEE dd/MM/yyyy'" [readonly]="true">
+                        </mat-form-field>
+                    </div>
+
+                    <!-- Description -->
+                    <mat-form-field class="product-form-field">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Description" [value]="product.description" [readonly]="true"></textarea>
+                    </mat-form-field>
+
+                    <!-- Is Variable -->
+                    <mat-checkbox
+                        [checked]="product.is_variable"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Variable
+                    </mat-checkbox>
+
+                    <!-- Is Green -->
+                    <mat-checkbox
+                        [checked]="product.is_green"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Green
+                    </mat-checkbox>
+
+                    <!-- Is Tracker -->
+                    <mat-checkbox
+                        [checked]="product.is_tracker"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Tracker
+                    </mat-checkbox>
+
+                    <!-- Is Prepay -->
+                    <mat-checkbox
+                        [checked]="product.is_prepay"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Prepay
+                    </mat-checkbox>
+
+                    <!-- Is Business -->
+                    <mat-checkbox
+                        [checked]="product.is_business"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Business
+                    </mat-checkbox>
+
+                    <!-- Is Restricted -->
+                    <mat-checkbox
+                        [checked]="product.is_restricted"
+                        [disableRipple]="true"
+                        (click)="$event.preventDefault()"
+                    >
+                        Restricted
+                    </mat-checkbox>
+
+
+                </fieldset>
+
+            </form>
+
+        </ng-container>
+
+    </div>
+
+</div>

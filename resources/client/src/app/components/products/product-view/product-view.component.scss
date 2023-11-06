@@ -1,0 +1,52 @@
+.loading-spinner {
+    margin: auto;
+}
+
+.page-container {
+    display: flex;
+}
+
+.page-header {
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.product-container {
+    flex: 1;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.product-form-field {
+    width: 100%;
+}
+
+fieldset {
+    border-color: lightgray;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+legend {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+mat-checkbox {
+    pointer-events: none;
+}
+
+.field-container {
+    display: flex;
+
+    mat-form-field {
+        flex: 1;
+        margin: 0 10px;
+    }
+}

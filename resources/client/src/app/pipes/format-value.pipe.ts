@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform, Inject, LOCALE_ID } from '@angular/core';
-import { DateAgoPipe } from './date-ago.pipe';
 import { DatePipe, formatNumber } from '@angular/common';
 
 @Pipe({ name: 'FormatValue' })
